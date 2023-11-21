@@ -1,8 +1,21 @@
+import { getServerSession } from "next-auth";
+import { options } from "./api/auth/[...nextauth]/options";
+import UserCard from "./components/UserCard/UserCard";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(options);
   return (
-    <div>
-      <h1>Selamat Datang, User!</h1>
-    </div>
-  )
+    <>
+      {session ? (
+        <>
+          <h1 className="text-center p-5">Selamat Datang</h1>
+          <div className="grid justify-items-center">
+            <UserCard user={session.user} />
+          </div>
+        </>
+      ) : (
+        <h1>Login</h1>
+      )}
+    </>
+  );
 }
