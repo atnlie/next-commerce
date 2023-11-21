@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type User =
   | {
@@ -30,12 +31,12 @@ export default function UserCard({ user }: Props) {
           {user?.email}
         </span>
         <div className="flex mt-4 md:mt-6">
-          <a
-            href="#"
+          <Link
+            href="/api/auth/signout"
             className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-2 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
           >
             Signout
-          </a>
+          </Link>
         </div>
       </div>
     </div>

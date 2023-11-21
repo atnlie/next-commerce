@@ -8,7 +8,7 @@ export default async function Home() {
     <>
       {session ? (
         <>
-          <h1 className="text-center p-5">Selamat Datang</h1>
+          <h1 className="text-center p-5 text-2xl">Selamat Datang</h1>
           <div className="grid justify-items-center">
             <UserCard user={session.user} />
           </div>
